@@ -1,4 +1,8 @@
 local optionList = {
+    -- name
+    ["-n"] = "name";
+    ["--name"] = "name";
+
     -- info
     ["-i"] = "info";
     ["--info"] = "info";
@@ -35,6 +39,8 @@ if option.help then
     os.exit(0);
 elseif not option.info then
     error("info file was not found");
+elseif not option.name then
+    error("name was not found");
 end
 
 local fileSy = require("app.file");
@@ -46,6 +52,6 @@ DBHandle
     :setFileSave(fileSy.fileSave)
     :setJson(json);
 
-DBHandle.update(arg[1],json.decode(fileSy.fileLoad(option.info)));
+DBHandle.update(option.name,json.decode(fileSy.fileLoad(option.info)));
 
-return;
+os.exit(0);
