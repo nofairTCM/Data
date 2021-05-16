@@ -1,0 +1,36 @@
+local module = {};
+
+local json;
+function module:setJson(newJson)
+    json = newJson;
+    return self;
+end
+
+local fileLoad;
+function module:setFileLoad(newFileLoad)
+    fileLoad = fileLoad;
+    return self;
+end
+
+local fileSave;
+function module:setFileSave(newFileSave)
+    fileSave = newFileSave;
+    return self;
+end
+
+function module.update(moduleName,data)
+    local DB = json.decode(fileLoad("data/main.json"));
+
+    local this = DB[moduleName];
+    if not this then
+        error("Module %s was not found from db, pls manage module info to fix this error");
+    end
+
+    for i,v in pairs(data) do
+        this[i] = v;
+    end
+
+    return fileSave("data/main.json",json.encode(DB));
+end
+
+return module;
