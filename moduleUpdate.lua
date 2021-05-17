@@ -17,21 +17,29 @@ local lastOpt;
 
 local strSub = string.sub;
 local tableInsert = table.insert;
-for i = 1,#args do
-    local this = args[i];
-    if lastOpt then -- set option
-        option[lastOpt] = this;
-        lastOpt = nil;
-    elseif strSub(this,1,1) == "-" then -- this = option
-        local optName = optionList[this];
-        if not optName then
-            error("option %s was not found, -h for see info");
+for i,this in ipairs(args) do
+    if i >= 1 then
+        if lastOpt then -- set option
+            option[lastOpt] = this;
+            lastOpt = nil;
+        elseif strSub(this,1,1) == "-" then -- this = option
+            local optName = optionList[this];
+            if not optName then
+                error("option %s was not found, -h for see info");
+            end
+            option[optName] = true;
+            lastOpt = optName;
+        else
+            tableInsert(arg,this);
         end
-        option[optName] = true;
-        lastOpt = optName;
-    else
-        tableInsert(arg,this);
     end
+end
+
+for i,v in pairs(arg) do
+    print(i,v);
+end
+for i,v in pairs(option) do
+    print(i,v);
 end
 
 if option.help then
