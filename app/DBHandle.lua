@@ -19,7 +19,7 @@ function module:setFileSave(newFileSave)
 end
 
 function module.update(moduleName,data)
-    local DB = json.decode(fileLoad("data/main.json"));
+    local DB = json.decode(fileLoad("db/data/main.json"));
 
     local this = DB[moduleName];
     if not this then
@@ -30,7 +30,7 @@ function module.update(moduleName,data)
         this[i] = v;
     end
 
-    return fileSave("data/main.json",json.encode(DB));
+    return fileSave("db/data/main.json",json.encode(DB));
 end
 
 return module;

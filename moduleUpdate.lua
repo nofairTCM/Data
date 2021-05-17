@@ -35,6 +35,7 @@ for i,this in ipairs(args) do
     end
 end
 
+-- print args
 for i,v in pairs(arg) do
     print(i,v);
 end
@@ -51,8 +52,8 @@ elseif not option.name then
     error("name was not found");
 end
 
-local fileSy = require("app.file");
-local DBHandle = require("app.DBHandle");
+local fileSy = require("db.app.file");
+local DBHandle = require("db.app.DBHandle");
 local json = require("json")
 
 DBHandle
