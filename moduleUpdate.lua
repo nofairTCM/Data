@@ -18,7 +18,7 @@ local lastOpt;
 local strSub = string.sub;
 local tableInsert = table.insert;
 local started = false;
-for i = 2,#args do
+for i = 1,#args do
     local this = args[i];
     if started then
         if lastOpt then -- set option
