@@ -8,7 +8,7 @@ end
 
 local fileLoad;
 function module:setFileLoad(newFileLoad)
-    fileLoad = fileLoad;
+    fileLoad = newFileLoad;
     return self;
 end
 
