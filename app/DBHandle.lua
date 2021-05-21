@@ -30,7 +30,7 @@ function module.update(moduleName,data)
         this[i] = v;
     end
 
-    return fileSave("data/main.json",json.encode(DB,{indent = true}));
+    return fileSave("db/data/main.json",json.encode(DB,{indent = true}));
 end
 
 return module;
