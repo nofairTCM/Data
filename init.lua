@@ -32,6 +32,12 @@ local commands = {
             end
 
             file.fileSave("Package\\packageList.json",json.encode(list));
+
+            os.execute(
+                "git config --global user.email \"41898282+github-actions[bot]@users.noreply.github.com\"" ..
+                "&&git config --global user.name \"github-actions[bot]\"" ..
+                ("&&git -C Package commit -m \"data base updated by github workflow (%s)\" -a"):format(options.name)
+            );
         end;
     };
     upload = {
@@ -41,7 +47,7 @@ local commands = {
             ["--cookie"] = "cookie"; -- RBLXTOKEN
         };
         execute = function (args,options)
-            os.execute(("Package\\bin\\rojo.exe upload %s --asset_id %s --cookie %s"):format(options.project,options.assetId,options.cookie));
+            os.execute(("Package\\bin\\rojo.exe upload %s --asset_id %s --cookie \"%s\""):format(options.project,options.assetId,options.cookie));
         end;
     };
 };
