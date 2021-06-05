@@ -1,14 +1,14 @@
 {
   "InstallerPlugin":{
-    "version":"1.14.221",
+    "version":"2.15.282",
     "github":"https://github.com/nofairTCM/InstallerPlugin",
-    "buildVersion":221,
+    "buildVersion":282,
     "lic":"MIT",
     "import":[],
     "visible":false,
     "info":"인스톨러 플러그인입니다, 각 모듈을 받고 관리하는데 사용될 수 있습니다",
-    "publishVersion":14,
-    "majorVersion":1,
+    "publishVersion":15,
+    "majorVersion":2,
     "index":1000000001,
     "publishStatus":"RELEASE",
     "toolboxID":"",
