@@ -49,7 +49,7 @@
   },
   "AdvancedTween":{
     "version":"1.1.1",
-    "github":"https://github.com/nofairTCM/Lib-AdvancedTween",
+    "github":"https://github.com/nofairTCM/AdvancedTween",
     "visible":true,
     "lic":"MIT",
     "import":[],
@@ -60,6 +60,22 @@
     "index":1000000003,
     "publishStatus":"RELEASE",
     "toolboxID":"rbxassetid://6801495885",
+    "name":"AdvancedTween",
+    "author":"qwreey75"
+  },
+  "GunKit":{
+    "version":"1.1.1",
+    "github":"https://github.com/nofairTCM/GunKit",
+    "visible":true,
+    "lic":"MIT",
+    "import":[],
+    "info":"간단한 이벤트 중심적 총 키트입니다, 발사해서 맞추면 동작하는 오브젝트와 같은 다양한 인터렉션을 연계할 수 있습니다",
+    "buildVersion":1,
+    "publishVersion":1,
+    "majorVersion":1,
+    "index":3,
+    "publishStatus":"RELEASE",
+    "toolboxID":"rbxassetid://6886525193",
     "name":"AdvancedTween",
     "author":"qwreey75"
   }
