@@ -5,7 +5,7 @@
     "visible":true,
     "lic":"MIT",
     "import":["MaterialUI","AdvancedTween"],
-    "info":"npc 챗 부분을 담당하는 모듈입니다, https://github.com/qwreey75/RBX_UI_PROJECT 의 소스코드가 일부 포함되어 있습니다",
+    "info":"npc 와 대화하는 창을 Material 디자인으로 만드는 모듈입니다, 구성이 간단해 쉽게 사용할 수 있습니다",
     "buildVersion":22,
     "publishVersion":8,
     "majorVersion":0,
