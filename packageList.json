@@ -47,6 +47,7 @@
     "toolboxID":"rbxassetid://6801506901",
     "name":"MaterialUI",
     "author":"qwreey75",
+    "docs":"https://sites.google.com/view/rbx-material-ui/component",
     "icon":"http://www.roblox.com/asset/?id=6947500066"
   },
   "GunKit":{
@@ -81,6 +82,6 @@
     "toolboxID":"rbxassetid://6801495885",
     "name":"AdvancedTween",
     "author":"qwreey75",
-    "icon":"http://www.roblox.com/asset/?id=6947498658"
+    "icon":"http://www.roblox.com/asset/?id=6947517775"
   }
 }
