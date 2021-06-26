@@ -12,9 +12,10 @@ local commands = {
         options = {
             ["--project"] = "project"; -- project file path
             ["--output"] = "output"; -- output file path
+            ["--this"] = "this";
         };
         execute = function (args,options)
-            os.execute(("Package\\bin\\rojo.exe build %s -o %s"):format(options.project,options.output));
+            os.execute(("%s\\bin\\rojo.exe build %s -o %s"):format(options.this or "Package",options.project,options.output));
         end;
     };
     updateList = {
@@ -22,10 +23,11 @@ local commands = {
             ["--info"] = "info"; -- info file path
             ["--name"] = "name"; -- name of module
             ["--verAdd"] = "verAdd";
+            ["--this"] = "this";
         };
         execute = function (args,options)
             local info = json.decode(file.fileLoad(options.info));
-            local list = json.decode(file.fileLoad("Package\\packageList.json"));
+            local list = json.decode(file.fileLoad(("%s\\packageList.json"):format(options.this or "Package")));
 
             local verAdd = options.verAdd;
             local name = options.name;
@@ -39,7 +41,7 @@ local commands = {
                 item[i] = v;
             end
 
-            file.fileSave("Package\\packageList.json",json.encode(list,{indent = true}));
+            file.fileSave(("%s\\packageList.json"):format(options.this or "Package"),json.encode(list,{indent = true}));
 
             os.execute(
                 "git config --global user.email \"41898282+github-actions[bot]@users.noreply.github.com\"" ..
@@ -53,9 +55,22 @@ local commands = {
             ["--project"] = "project"; -- project file path
             ["--assetId"] = "assetId"; -- asset id
             ["--cookie"] = "cookie"; -- RBLXTOKEN
+            ["--this"] = "this";
         };
         execute = function (args,options)
-            os.execute(("Package\\bin\\rojo.exe upload %s --asset_id %s --cookie \"%s\""):format(options.project,options.assetId,options.cookie));
+            os.execute(("%s\\bin\\rojo.exe upload %s --asset_id %s --cookie \"%s\""):format(options.this or "Package",options.project,options.assetId,options.cookie));
+        end;
+    };
+    uploadFromProjectInfo = {
+        options = {
+            ["--project"] = "project"; -- project file path
+            ["--cookie"] = "cookie"; -- RBLXTOKEN
+            ["--this"] = "this";
+            ["--info"] = "info";
+        };
+        execute = function (args,options)
+            local info = json.decode(file.fileLoad(options.info));
+            os.execute(("%s\\bin\\rojo.exe upload %s --asset_id %s --cookie \"%s\""):format(options.this or "Package",options.project,info.toolboxID,options.cookie));
         end;
     };
 };
